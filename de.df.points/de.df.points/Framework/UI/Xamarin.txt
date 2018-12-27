@@ -1,0 +1,155 @@
+﻿https://stackoverflow.com/questions/37445473/change-return-to-be-next-done-key-in-xamarin-forms-shared-project
+
+////////////////// Forms
+
+namespace YourNameSpaceHere
+{
+    public class EntryExt : Entry
+    {
+        public const string ReturnKeyPropertyName = "ReturnKeyType";
+
+        public EntryExt() { }
+
+        public static readonly BindableProperty ReturnKeyTypeProperty = BindableProperty.Create(
+            propertyName: ReturnKeyPropertyName,
+            returnType: typeof(ReturnKeyTypes),
+            declaringType: typeof(EntryExt),
+            defaultValue: ReturnKeyTypes.Done);
+
+        public ReturnKeyTypes ReturnKeyType
+        {
+            get { return (ReturnKeyTypes)GetValue(ReturnKeyTypeProperty); }
+            set { SetValue(ReturnKeyTypeProperty, value); }
+        }
+    }
+
+    // Not all of these are support on Android, consult EntryEditText.ImeOptions
+    public enum ReturnKeyTypes : int
+    {
+        Default,
+        Go,
+        Google,
+        Join,
+        Next,
+        Route,
+        Search,
+        Send,
+        Yahoo,
+        Done,
+        EmergencyCall,
+        Continue
+    }
+}
+
+
+//////////////////////////// iOS
+
+[assembly: ExportRenderer(typeof(Entry), typeof(EntryExtRenderer_iOS))]
+namespace KeyboardDone.iOS
+{
+    public class EntryExtRenderer_iOS : EntryRenderer
+    {
+        public EntryExtRenderer_iOS() { }
+
+        protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
+        {
+            base.OnElementChanged(e);
+            if ((Control != null) && (e.NewElement != null))
+                Control.ReturnKeyType = (e.NewElement as EntryExt).ReturnKeyType.GetValueFromDescription();
+        }
+
+        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            base.OnElementPropertyChanged(sender, e);
+            if (e.PropertyName == EntryExt.ReturnKeyPropertyName)
+            {
+                D.WriteLine($"{(sender as EntryExt).ReturnKeyType.ToString()}");
+                Control.ReturnKeyType = (sender as EntryExt).ReturnKeyType.GetValueFromDescription();
+            }
+        }
+    }
+
+    public static class EnumExtensions
+    {
+        public static UIReturnKeyType GetValueFromDescription(this ReturnKeyTypes value)
+        {
+            var type = typeof(UIReturnKeyType);
+            if (!type.IsEnum) throw new InvalidOperationException();
+            foreach (var field in type.GetFields())
+            {
+                var attribute = Attribute.GetCustomAttribute(field,
+                    typeof(DescriptionAttribute)) as DescriptionAttribute;
+                if (attribute != null)
+                {
+                    if (attribute.Description == value.ToString())
+                        return (UIReturnKeyType)field.GetValue(null);
+                }
+                else
+                {
+                    if (field.Name == value.ToString())
+                        return (UIReturnKeyType)field.GetValue(null);
+                }
+            }
+            throw new NotSupportedException($"Not supported on iOS: {value}");
+        }
+    }
+}
+
+//////////////////////////// Android
+
+[assembly: ExportRenderer(typeof(Entry), typeof(EntryExtRenderer_Droid))]
+namespace KeyboardDone.Droid
+{
+    public class EntryExtRenderer_Droid : EntryRenderer
+    {
+        public EntryExtRenderer_Droid() { }
+
+        protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
+        {
+            base.OnElementChanged(e);
+            if ((Control != null) && (e.NewElement != null))
+            {
+                var entryExt = (e.NewElement as EntryExt);
+                Control.ImeOptions = entryExt.ReturnKeyType.GetValueFromDescription();
+                // This is hackie ;-) / A Android-only bindable property should be added to the EntryExt class 
+                Control.SetImeActionLabel(entryExt.ReturnKeyType.ToString(), Control.ImeOptions);
+            }
+        }
+        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            base.OnElementPropertyChanged(sender, e);
+            if (e.PropertyName == EntryExt.ReturnKeyPropertyName)
+            {
+                var entryExt = (sender as EntryExt);
+                Control.ImeOptions = entryExt.ReturnKeyType.GetValueFromDescription();
+                // This is hackie ;-) / A Android-only bindable property should be added to the EntryExt class 
+                Control.SetImeActionLabel(entryExt.ReturnKeyType.ToString(), Control.ImeOptions);
+            }
+        }
+
+    }
+    public static class EnumExtensions
+    {
+        public static ImeAction GetValueFromDescription(this ReturnKeyTypes value)
+        {
+            var type = typeof(ImeAction);
+            if (!type.IsEnum) throw new InvalidOperationException();
+            foreach (var field in type.GetFields())
+            {
+                var attribute = Attribute.GetCustomAttribute(field,
+                    typeof(DescriptionAttribute)) as DescriptionAttribute;
+                if (attribute != null)
+                {
+                    if (attribute.Description == value.ToString())
+                        return (ImeAction)field.GetValue(null);
+                }
+                else
+                {
+                    if (field.Name == value.ToString())
+                        return (ImeAction)field.GetValue(null);
+                }
+            }
+            throw new NotSupportedException($"Not supported on Android: {value}");
+        }
+    }
+}

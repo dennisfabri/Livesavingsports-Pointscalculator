@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ext="clr-namespace:de.df.points.View.Extensions"
+             xmlns:ui="clr-namespace:de.df.points.Framework.UI"
+             x:Class="de.df.points.View.OverviewPageMaster"
+             Title="Master">
+    <StackLayout Spacing="0">
+        <Grid BackgroundColor="#03A9F4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Row="1" Grid.Column="1" Source="menu.png" WidthRequest="48" HeightRequest="48" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" />
+            <Label Grid.Column="3" Grid.Row="1" Text="Punkterechner" Style="{DynamicResource SubtitleStyle}" FontSize="Large" TextColor="White" VerticalOptions="Center"/>
+        </Grid>
+
+        <ui:ToggleButton Text="Einzel" x:Name="Single" Checked="True"/>
+        <ui:ToggleButton Text="Mannschaft" x:Name="Team"/>
+
+        <BoxView Color="LightGray" HeightRequest="1" HorizontalOptions="FillAndExpand" Margin="10,4,10,4"/>
+
+        <ui:ToggleButton Text="Bedienung" x:Name="Doc"/>
+        <ui:ToggleButton Text="Einstellungen" x:Name="Settings"/>
+        <ui:ToggleButton Text="Über" x:Name="About"/>
+
+    </StackLayout>
+</ContentPage>

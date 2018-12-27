@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Bedienung"
+             x:Class="de.df.points.View.IntroductionPage">
+    <ScrollView>
+        <StackLayout Padding="4">
+            <Label Text="Rettungssport Punkte" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Image Source="logo.png" HorizontalOptions="CenterAndExpand" Margin="0"/>
+            <Label Text="Willkommen beim Punkterechner für DLRG-Wettkämpfe." FontSize="Small" Margin="0,0,0,16"/>
+
+            <Label Text="Bedienung" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,0,8"/>
+            <Label Text="Wechsel zwischen Altersklassen" />
+            <Label Text="1. Sie können zwischen den Altersklassen wechseln, indem Sie nach links oder rechts Wischen." Margin="4,0,0,0"/>
+            <Label Text="2. Sie können eine Altersklasse auch direkt auswählen, indem Sie auf den Pfeil in der Titelleiste klicken." Margin="4,0,0,0"/>
+            <Label Text="Menüpunkt Einstellungen" />
+            <Label Text="Auswahl des Jahres für die Rec-Werte" Margin="4,0,0,0"/>
+            <!-- <Button Text="Ok" Clicked="OnClicked" Margin="0,16,0,0"/> -->
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

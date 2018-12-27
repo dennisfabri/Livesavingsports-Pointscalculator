@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns:ext="using:de.df.points.View.Extensions"
+    xmlns:ext2="clr-namespace:de.df.points.View.Extensions"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="de.df.points.View.AgegroupPage"    
+    Title="{Binding Path=Title}"
+    Padding="0"
+    BackgroundColor="White"
+    >
+    <ContentPage.ToolbarItems >
+        <ToolbarItem x:Name="JumpToButton" Icon="next.png" Priority="1" Order="Primary" Command="{Binding CommandJumpTo, Mode=OneWay}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="Fill" HorizontalOptions="FillAndExpand" >
+            <Grid VerticalOptions="Fill" HorizontalOptions="FillAndExpand" RowSpacing="0" Padding="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="0"/>
+
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="0"/>
+
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Disziplin" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" VerticalOptions="Center" HorizontalOptions="Start" TextColor="Black"/>
+                <Label Text="Eingabe" Grid.Row="2" Grid.Column="0" Margin="10,0,0,0" TextColor="#FF606060"/>
+                <Label Text="Zeit" Grid.Row="2" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End" TextColor="#FF606060"/>
+                <Label Text="Punkte" Grid.Row="2" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End" TextColor="#FF606060"/>
+
+                <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" IsVisible="{Binding IsEnabled1}" Text="{Binding Discipline1Full}" Margin="0,4,0,0" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                <Entry Text="{Binding Time1Text}" Grid.Row="4" Grid.Column="0" Keyboard="Numeric" IsVisible="{Binding IsEnabled1}" Completed="Entry1Completed" x:Name="Entry1" Margin="10,0,0,0" Placeholder="12345" PlaceholderColor="LightGray" ReturnType="{Binding ReturnType1}"/>
+                <Label Text="{Binding Time1Formatted}" Grid.Row="4" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End" IsVisible="{Binding IsEnabled1}" x:Name="TimeLabel1" />
+                <Label Text="{Binding Result1, StringFormat='{0:N2}'}" Grid.Row="4" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End" IsVisible="{Binding IsEnabled1}" x:Name="PointsLabel1"/>
+
+                <Label Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="3" IsVisible="{Binding IsEnabled2}" Text="{Binding Discipline2Full}" Margin="0,8,0,0" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                <Entry Text="{Binding Time2Text}" Grid.Row="7" Grid.Column="0" Keyboard="Numeric" IsVisible="{Binding IsEnabled2}" Completed="Entry2Completed" x:Name="Entry2" Margin="10,0,0,0" Placeholder="12345" PlaceholderColor="LightGray" ReturnType="{Binding ReturnType2}"/>
+                <Label Text="{Binding Time2Formatted}" Grid.Row="7" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End" IsVisible="{Binding IsEnabled2}" x:Name="TimeLabel2"/>
+                <Label Text="{Binding Result2, StringFormat='{0:N2}'}" Grid.Row="7" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End" IsVisible="{Binding IsEnabled2}" x:Name="PointsLabel2"/>
+
+                <Label Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3" IsVisible="{Binding IsEnabled3}" Text="{Binding Discipline3Full}" Margin="0,8,0,0" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                <Entry Text="{Binding Time3Text}" Grid.Row="10" Grid.Column="0" Keyboard="Numeric" IsVisible="{Binding IsEnabled3}" Completed="Entry3Completed" x:Name="Entry3" Margin="10,0,0,0" Placeholder="12345" PlaceholderColor="LightGray" ReturnType="{Binding ReturnType3}"/>
+                <Label Text="{Binding Time3Formatted}" Grid.Row="10" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End" IsVisible="{Binding IsEnabled3}" x:Name="TimeLabel3"/>
+                <Label Text="{Binding Result3, StringFormat='{0:N2}'}" Grid.Row="10" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End" IsVisible="{Binding IsEnabled3}" x:Name="PointsLabel3"/>
+
+                <Label Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="3" IsVisible="{Binding IsEnabled4}" Text="{Binding Discipline4Full}" Margin="0,8,0,0" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                <Entry Text="{Binding Time4Text}" Grid.Row="13" Grid.Column="0" Keyboard="Numeric" IsVisible="{Binding IsEnabled4}" Completed="Entry4Completed" x:Name="Entry4" Margin="10,0,0,0" Placeholder="12345" PlaceholderColor="LightGray" ReturnType="{Binding ReturnType4}"/>
+                <Label Text="{Binding Time4Formatted}" Grid.Row="13" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End" IsVisible="{Binding IsEnabled4}" x:Name="TimeLabel4"/>
+                <Label Text="{Binding Result4, StringFormat='{0:N2}'}" Grid.Row="13" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End" IsVisible="{Binding IsEnabled4}" x:Name="PointsLabel4"/>
+
+                <Label Grid.Row="15" Grid.Column="0" Grid.ColumnSpan="3" IsVisible="{Binding IsEnabled5}" Text="{Binding Discipline5Full}" Margin="0,8,0,0" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                <Entry Text="{Binding Time5Text}" Grid.Row="16" Grid.Column="0" Keyboard="Numeric" IsVisible="{Binding IsEnabled5}" Completed="Entry5Completed" x:Name="Entry5" Margin="10,0,0,0" Placeholder="12345" PlaceholderColor="LightGray" ReturnType="{Binding ReturnType5}"/>
+                <Label Text="{Binding Time5Formatted}" Grid.Row="16" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End" IsVisible="{Binding IsEnabled5}" x:Name="TimeLabel5"/>
+                <Label Text="{Binding Result5, StringFormat='{0:N2}'}" Grid.Row="16" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End" IsVisible="{Binding IsEnabled5}" x:Name="PointsLabel5"/>
+
+                <Label Grid.Row="18" Grid.Column="0" Grid.ColumnSpan="3" IsVisible="{Binding IsEnabled6}" Text="{Binding Discipline6Full}" Margin="0,8,0,0" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                <Entry Text="{Binding Time6Text}" Grid.Row="19" Grid.Column="0" Keyboard="Numeric" IsVisible="{Binding IsEnabled6}" Completed="Entry6Completed" x:Name="Entry6" Margin="10,0,0,0" Placeholder="12345" PlaceholderColor="LightGray" ReturnType="{Binding ReturnType6}"/>
+                <Label Text="{Binding Time6Formatted}" Grid.Row="19" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End" IsVisible="{Binding IsEnabled6}" x:Name="TimeLabel6"/>
+                <Label Text="{Binding Result6, StringFormat='{0:N2}'}" Grid.Row="19" Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End" IsVisible="{Binding IsEnabled6}" x:Name="PointsLabel6"/>
+
+                <Label Grid.Row="21" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="End" Text="{Binding Result, StringFormat='{0:N2}'}" VerticalOptions="Center" Margin="0,8,0,0" TextColor="Black"/>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

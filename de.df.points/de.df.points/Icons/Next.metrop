@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IconProject Version="2.0" Name="Next" PUAEnable="true" BasicLatinEnable="false">
+  <Icon Name="Next" HasCharacterMap="false" GroupName="Mobile Application" IsDirty="true" FontName="Next" IsDuplicate="false" ASCIIValue="" AlphaNumericValue="" FiValue="" ExportCommand="MetroGraphicsPackage.IconCommand" Data="M15.500015,0L20.800008,0 32.000001,10.700012 29.400021,13.200012 20.700002,21.5 15.599991,21.5 15.500015,21.400009 24.900018,12.400009 0,12.400009 0,8.900009 24.900018,8.900009z" DataFont="M780.6,560.3L2.5,560.3 2.5,450.9 780.6,450.9 486.9,169.7 490,166.6 649.4,166.6 921.3,426 1002.5,504.1 652.5,838.5 486.9,838.5 780.6,560.3z">
+    <Settings MainWidth="256" MainHeight="256" FlipX="1" FlipY="1" CustomSize="256" IconShape="None" BackgroundBrush="#FFFFFFFF" ContentWidth="192" ContentHeight="192" Angle="0" IsRect="false" SizeIndex="6" CustomWidth="256" CustomHeight="256" IsLinked="false" Padding="32" MaximumPadding="79" SldierValueChanged="MetroGraphicsPackage.IconCommand" IconBrush="#FFFFFFFF" FontFamily="Segoe UI" Character="&gt;" FlipCommand="MetroGraphicsPackage.IconCommand" IsBackgroundVisible="true" />
+  </Icon>
+  <PreferenceInfo ClassPrefix="sf-icon-" ClassPostfix="" CSSSelector="Attribute" CSSClassName="sf-icon" />
+</IconProject>
