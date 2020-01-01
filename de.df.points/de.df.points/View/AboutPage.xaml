@@ -8,7 +8,7 @@
             <Label Text="Rettungssport Punkte" FontSize="Large" VerticalOptions="Center"/>
             <Image Source="logo.png" HorizontalOptions="CenterAndExpand" Margin="10"/>
             <Label Text="Punkteberechnung für DLRG-Wettkämpfe" FontSize="Small"/>
-            <Label Text="Die App berechnet schnell und unkompliziert die Punkte für Schwimmer und Mannschaften aus ihren aktuellen Zeiten. In den Altersklassen 17/18 und Offen können im Einzel alle sechs Zeiten eingegeben werden. Der Punkterechner wählt für die Gesamtpunktzahl die drei besten aus." FontSize="Small" TextColor="#FF606060" LineBreakMode="WordWrap"/>
+            <Label Text="Die App berechnet schnell und unkompliziert die Punkte für Schwimmer und Mannschaften aus ihren aktuellen Zeiten. In den Altersklassen mit Disziplinenwahl können im Einzel Zeiten für alle Diziplinen eingegeben werden. Der Punkterechner wählt für die Gesamtpunktzahl die Besten aus." FontSize="Small" TextColor="#FF606060" LineBreakMode="WordWrap"/>
             <Label Text=" " FontSize="Large"/>
             <Label Text="von Dennis Fabri" FontSize="Medium" VerticalOptions="Center"/>
             <Label Text="https://www.dennisfabri.de" FontSize="Small" VerticalOptions="Center"/>
