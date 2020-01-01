@@ -12,6 +12,7 @@ namespace de.df.points
 
         private AgegroupsPage AgegroupsSingle { get; set; }
         private AgegroupsPage AgegroupsTeam { get; set; }
+
         private NavigationPage NavigationPage { get { return (NavigationPage)OverviewPage.Detail; } }
 
         internal void Start()
@@ -137,10 +138,15 @@ namespace de.df.points
             return OverviewPage;
         }
 
+        internal int[] getYears()
+        {
+            return DataModel.GetYears();
+        }
+
         internal void Set(int year)
         {
             AgegroupsSingleData.Items = DataModel.GetSingle(year);
-            AgegroupsSingleData.Items = DataModel.GetTeam(year);
+            AgegroupsTeamData.Items = DataModel.GetTeam(year);
         }
 
         internal void Back()

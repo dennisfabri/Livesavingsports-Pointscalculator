@@ -2,12 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.13.0</Version>
+    <Version>1.15.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Prism.Forms" Version="7.2.0.1367" />
-    <PackageReference Include="Xamarin.Forms" Version="4.2.0.848062" />  
+    <PackageReference Include="Prism.Forms" Version="7.2.0.1422" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />  
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="View\StartPage.xaml.cs">
+      <DependentUpon>StartPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
