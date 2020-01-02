@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2026
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "de.df.points.Android", "de.df.points\de.df.points.Android\de.df.points.Android.csproj", "{5AEF125B-9EBA-40A7-B8DF-9C86F349E3D4}"
 EndProject
@@ -101,7 +101,6 @@ Global
 		{2C259D96-22A9-468F-A2D6-4767275C558E}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{2C259D96-22A9-468F-A2D6-4767275C558E}.Debug|ARM.ActiveCfg = Debug|ARM
 		{2C259D96-22A9-468F-A2D6-4767275C558E}.Debug|ARM.Build.0 = Debug|ARM
-		{2C259D96-22A9-468F-A2D6-4767275C558E}.Debug|ARM.Deploy.0 = Debug|ARM
 		{2C259D96-22A9-468F-A2D6-4767275C558E}.Debug|iPhone.ActiveCfg = Debug|x86
 		{2C259D96-22A9-468F-A2D6-4767275C558E}.Debug|iPhone.Build.0 = Debug|x86
 		{2C259D96-22A9-468F-A2D6-4767275C558E}.Debug|iPhone.Deploy.0 = Debug|x86
