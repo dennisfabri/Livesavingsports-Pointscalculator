@@ -35,9 +35,9 @@ namespace de.df.points.View
         x++;
       }
 
-      JumpToButton.IconImageSource = new FileImageSource() {
-        File = "next.png",
-      };
+      //JumpToButton.IconImageSource = new FileImageSource() {
+      //  File = "next.png",
+      //};
       // JumpToButton.Icon = new Image() { Source = ImageSource.FromResource("next.png")};
     }
 

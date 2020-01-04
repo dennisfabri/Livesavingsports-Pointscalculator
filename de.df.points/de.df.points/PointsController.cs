@@ -20,24 +20,24 @@ namespace de.df.points
             OverviewPage.Select(0);
         }
 
-        private SelectionPage selectionPage;
+        private SettingsPage settingsPage;
         private AboutPage aboutPage;
         private IntroductionPage introductionPage;
 
         private Agegroups AgegroupsSingleData { get; set; }
         private Agegroups AgegroupsTeamData { get; set; }
 
-        private SelectionPage SelectionPage
+        private SettingsPage SettingsPage
         {
             get {
-                if (selectionPage == null)
+                if (settingsPage == null)
                 {
-                    selectionPage = new SelectionPage()
+                    settingsPage = new SettingsPage()
                     {
                         BindingContext = new MiniModel()
                     };
                 }
-                return selectionPage;
+                return settingsPage;
             }
         }
 
@@ -52,7 +52,7 @@ namespace de.df.points
                 case 101:
                     return IntroductionPage;
                 case 102:
-                    return SelectionPage;
+                    return SettingsPage;
                 default:
                     return AboutPage;
             }
@@ -166,7 +166,7 @@ namespace de.df.points
 
         public void Select()
         {
-            NavigationPage.PushAsync(SelectionPage);
+            NavigationPage.PushAsync(SettingsPage);
         }
 
         public void JumpTo(bool isSingle)

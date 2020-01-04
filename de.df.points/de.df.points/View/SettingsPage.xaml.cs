@@ -6,11 +6,11 @@ using Xamarin.Forms.Xaml;
 namespace de.df.points.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SelectionPage : ContentPage
+    public partial class SettingsPage : ContentPage
     {
         private bool onInitialize = true;
 
-        public SelectionPage()
+        public SettingsPage()
         {
             InitializeComponent();
 

@@ -9,9 +9,11 @@
     Padding="0"
     BackgroundColor="White"
     >
+    <!--
     <ContentPage.ToolbarItems >
         <ToolbarItem x:Name="JumpToButton" Icon="next.png" Priority="1" Order="Primary" Command="{Binding CommandJumpTo, Mode=OneWay}" />
     </ContentPage.ToolbarItems>
+    -->
     <ContentPage.Content>
         <ScrollView VerticalOptions="Fill" HorizontalOptions="FillAndExpand" >
             <Grid VerticalOptions="Fill" HorizontalOptions="FillAndExpand" RowSpacing="0" Padding="4">
