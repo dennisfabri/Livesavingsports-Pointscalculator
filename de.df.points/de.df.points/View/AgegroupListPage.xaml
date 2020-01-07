@@ -3,35 +3,38 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ext="clr-namespace:de.df.points.View.Extensions"
+             
+             Title="{Binding Title}"
+             Padding="0"
              mc:Ignorable="d"
              x:Class="de.df.points.View.AgegroupListPage">
-  <ListView x:Name="MyListView"
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="evenTemplate">
+                <ViewCell>
+                    <Grid BackgroundColor="LightPink">
+                        <Label Text="{Binding Name}" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,10,0,10"/>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="unevenTemplate">
+                <ViewCell>
+                    <Grid BackgroundColor="LightBlue">
+                        <Label Text="{Binding Name}" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,10,0,10"/>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+            <ext:AlternateColorDataTemplateSelector x:Key="alternateColorDataTemplateSelector"
+                EvenTemplate="{StaticResource evenTemplate}"
+                UnevenTemplate="{StaticResource unevenTemplate}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ListView x:Name="MyListView"
             ItemsSource="{Binding Items}"
-            ItemTapped="Handle_ItemTapped"
+            ItemTapped="ItemTapped"
+            HasUnevenRows="True"
+            ItemTemplate="{StaticResource alternateColorDataTemplateSelector}"
             CachingStrategy="RecycleElement">
-    <!--Built in Cells-->
-    <ListView.ItemTemplate>
-        <DataTemplate>
-            <TextCell Text="{Binding Name}" d:Text="{Binding Description}" />
-        </DataTemplate>
-    </ListView.ItemTemplate>
-    
-    <!--Custom View Cells-->
-    <!--
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <ViewCell>
-          <StackLayout>
-            <Label Text="{Binding Text}" 
-                   d:Text="{Binding .}"
-                   Style="{DynamicResource ListItemTextStyle}" />
-            <Label Text="{Binding Detail}" 
-                   d:Text="Detail"
-                   Style="{DynamicResource ListItemDetailTextStyle}"/>
-          </StackLayout>
-        </ViewCell>
-      </DataTemplate>
-    </ListView.ItemTemplate>
-    -->
-  </ListView>
+    </ListView>
 </ContentPage>

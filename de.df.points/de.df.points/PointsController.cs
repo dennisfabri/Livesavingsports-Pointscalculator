@@ -104,10 +104,12 @@ namespace de.df.points
             OverviewPage = new OverviewPage();
 
             AgegroupsSingleData = new Agegroups();
+            AgegroupsSingleData.Title = "Einzel";
             AgegroupsSingleData.Items = DataModel.GetCurrentSingle();
             AgegroupsSingle.BindingContext = AgegroupsSingleData;
 
             AgegroupsTeamData = new Agegroups();
+            AgegroupsTeamData.Title = "Mannschaft";
             AgegroupsTeamData.Items = DataModel.GetCurrentTeam();
             AgegroupsTeam.BindingContext = AgegroupsTeamData;
 
@@ -161,26 +163,6 @@ namespace de.df.points
         internal void Back()
         {
             NavigationPage.PopAsync();
-        }
-
-        internal void About()
-        {
-            NavigationPage.PushAsync(AboutPage);
-        }
-
-        public void Introduction()
-        {
-            NavigationPage.PushAsync(IntroductionPage);
-        }
-
-        public void Select()
-        {
-            NavigationPage.PushAsync(SettingsPage);
-        }
-
-        public void JumpTo(bool isSingle)
-        {
-            (isSingle ? AgegroupsSingleData : AgegroupsTeamData).JumpTo(NavigationPage);
         }
     }
 }

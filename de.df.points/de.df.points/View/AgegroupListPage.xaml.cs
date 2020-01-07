@@ -15,7 +15,7 @@ namespace de.df.points.View
             InitializeComponent();
         }
 
-        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
+        async void ItemTapped(object sender, ItemTappedEventArgs e)
         {
             Agegroup ag = ((ListView)sender).SelectedItem as Agegroup;
 

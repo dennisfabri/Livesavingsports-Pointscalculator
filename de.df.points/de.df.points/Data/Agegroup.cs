@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
-using Prism.Commands;
 
 namespace de.df.points.Data
 {
@@ -12,8 +11,6 @@ namespace de.df.points.Data
         public Agegroup()
         {
             IsSingle = true;
-
-            CommandJumpTo = new DelegateCommand(() => PointsController.Instance.JumpTo(IsSingle));
         }
 
         private static HashSet<char> invalidChars = new HashSet<char>(new char[] { '6', '7', '8', '9' });
@@ -38,8 +35,6 @@ namespace de.df.points.Data
         }
 
         #region Functions
-
-        public ICommand CommandJumpTo { get; set; }
 
         private bool IsValid(string value)
         {
