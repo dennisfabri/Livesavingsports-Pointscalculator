@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace de.df.points.Data
 {
-  abstract class ViewModelBase : INotifyPropertyChanged
+  public abstract class ViewModelBase : INotifyPropertyChanged
   {
     #region INotifyPropertyChanged
 

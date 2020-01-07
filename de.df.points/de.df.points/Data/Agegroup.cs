@@ -7,7 +7,7 @@ using Prism.Commands;
 
 namespace de.df.points.Data
 {
-    partial class Agegroup : ViewModelBase
+    public partial class Agegroup : ViewModelBase
     {
         public Agegroup()
         {

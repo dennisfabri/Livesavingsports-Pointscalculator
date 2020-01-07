@@ -10,8 +10,8 @@ namespace de.df.points
     {
         private OverviewPage OverviewPage { get; set; }
 
-        private AgegroupsPage AgegroupsSingle { get; set; }
-        private AgegroupsPage AgegroupsTeam { get; set; }
+        private AgegroupListPage AgegroupsSingle { get; set; }
+        private AgegroupListPage AgegroupsTeam { get; set; }
 
         private NavigationPage NavigationPage { get { return (NavigationPage)OverviewPage.Detail; } }
 
@@ -25,6 +25,15 @@ namespace de.df.points
         private IntroductionPage introductionPage;
 
         private Agegroups AgegroupsSingleData { get; set; }
+
+        internal void Show(Agegroup ag)
+        {
+            Page page = new AgegroupPage();
+            page.BindingContext = ag;
+
+            OverviewPage.Show(page);
+        }
+
         private Agegroups AgegroupsTeamData { get; set; }
 
         private SettingsPage SettingsPage
@@ -90,8 +99,8 @@ namespace de.df.points
 
         public PointsController()
         {
-            AgegroupsSingle = new AgegroupsPage();
-            AgegroupsTeam = new AgegroupsPage();
+            AgegroupsSingle = new AgegroupListPage();
+            AgegroupsTeam = new AgegroupListPage();
             OverviewPage = new OverviewPage();
 
             AgegroupsSingleData = new Agegroups();

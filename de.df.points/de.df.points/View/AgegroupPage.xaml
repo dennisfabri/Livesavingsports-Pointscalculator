@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    xmlns:ext="using:de.df.points.View.Extensions"
-    xmlns:ext2="clr-namespace:de.df.points.View.Extensions"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="de.df.points.View.AgegroupPage"    
@@ -9,11 +7,6 @@
     Padding="0"
     BackgroundColor="White"
     >
-    <!--
-    <ContentPage.ToolbarItems >
-        <ToolbarItem x:Name="JumpToButton" Icon="next.png" Priority="1" Order="Primary" Command="{Binding CommandJumpTo, Mode=OneWay}" />
-    </ContentPage.ToolbarItems>
-    -->
     <ContentPage.Content>
         <ScrollView VerticalOptions="Fill" HorizontalOptions="FillAndExpand" >
             <Grid VerticalOptions="Fill" HorizontalOptions="FillAndExpand" RowSpacing="0" Padding="4">

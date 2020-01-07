@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using de.df.points.View.Extensions;
-using de.df.points.Data;
 
 namespace de.df.points.View
 {
@@ -34,59 +32,6 @@ namespace de.df.points.View
 
         x++;
       }
-
-      //JumpToButton.IconImageSource = new FileImageSource() {
-      //  File = "next.png",
-      //};
-      // JumpToButton.Icon = new Image() { Source = ImageSource.FromResource("next.png")};
-    }
-
-    private ICommand commandSelection;
-
-    public ICommand CommandSelection
-    {
-      get {
-        if (commandSelection == null) {
-          commandSelection = new Command(() => Select());
-        }
-        return commandSelection;
-      }
-    }
-
-    private void Select()
-    {
-      PointsController.Instance.Select();
-    }
-
-    private void OnClickedSelection(object sender, EventArgs e)
-    {
-      Select();
-    }
-
-    private void About()
-    {
-      PointsController.Instance.About();
-    }
-
-    private void Intro()
-    {
-      PointsController.Instance.Introduction();
-    }
-
-    private void OnClickedAbout(object sender, EventArgs e)
-    {
-      About();
-    }
-
-    private void OnClickedIntro(object sender, EventArgs e)
-    {
-      Intro();
-    }
-
-    private void OnJumpTo(object sender, EventArgs e)
-    {
-      bool isSingle = ((Agegroup)BindingContext).IsSingle;
-      PointsController.Instance.JumpTo(isSingle);
     }
 
     private void Entry1Completed(object sender, EventArgs e)
