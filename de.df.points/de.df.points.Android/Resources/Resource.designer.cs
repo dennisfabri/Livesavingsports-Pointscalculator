@@ -4615,28 +4615,31 @@ namespace de.df.points.Droid
 			public const int secondary_text_disabled_material_light = 2131034242;
 			
 			// aapt resource value: 0x7F050083
-			public const int switch_thumb_disabled_material_dark = 2131034243;
+			public const int splashscreen = 2131034243;
 			
 			// aapt resource value: 0x7F050084
-			public const int switch_thumb_disabled_material_light = 2131034244;
+			public const int switch_thumb_disabled_material_dark = 2131034244;
 			
 			// aapt resource value: 0x7F050085
-			public const int switch_thumb_material_dark = 2131034245;
+			public const int switch_thumb_disabled_material_light = 2131034245;
 			
 			// aapt resource value: 0x7F050086
-			public const int switch_thumb_material_light = 2131034246;
+			public const int switch_thumb_material_dark = 2131034246;
 			
 			// aapt resource value: 0x7F050087
-			public const int switch_thumb_normal_material_dark = 2131034247;
+			public const int switch_thumb_material_light = 2131034247;
 			
 			// aapt resource value: 0x7F050088
-			public const int switch_thumb_normal_material_light = 2131034248;
+			public const int switch_thumb_normal_material_dark = 2131034248;
 			
 			// aapt resource value: 0x7F050089
-			public const int tooltip_background_dark = 2131034249;
+			public const int switch_thumb_normal_material_light = 2131034249;
 			
 			// aapt resource value: 0x7F05008A
-			public const int tooltip_background_light = 2131034250;
+			public const int tooltip_background_dark = 2131034250;
+			
+			// aapt resource value: 0x7F05008B
+			public const int tooltip_background_light = 2131034251;
 			
 			static Color()
 			{

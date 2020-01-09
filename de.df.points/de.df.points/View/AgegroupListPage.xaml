@@ -4,7 +4,6 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:ext="clr-namespace:de.df.points.View.Extensions"
-             
              Title="{Binding Title}"
              Padding="0"
              mc:Ignorable="d"

@@ -12,7 +12,6 @@ namespace de.df.points.Droid
     Theme = "@style/splashscreen",
     MainLauncher = true,
     ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation
-    //,ScreenOrientation = ScreenOrientation.Portrait
     )
     ]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
@@ -33,7 +32,7 @@ namespace de.df.points.Droid
             LoadApplication(new App());
 
             Window.SetSoftInputMode(SoftInput.AdjustResize);
-            AndroidBug5497WorkaroundForXamarinAndroid.assistActivity(this);
+            // AndroidBug5497WorkaroundForXamarinAndroid.assistActivity(this);
         }
     }
 }
