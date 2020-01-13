@@ -10,31 +10,71 @@ namespace de.df.points
     {
         private OverviewPage OverviewPage { get; set; }
 
-        private AgegroupListPage AgegroupsSingle { get; set; }
-        private AgegroupListPage AgegroupsTeam { get; set; }
+        private AgegroupListPage AgegroupsSingle
+        {
+            get {
+                if (agegroupsSingle == null)
+                {
+                    agegroupsSingle = new AgegroupListPage();
+                    AgegroupsSingleData = new Agegroups();
+                    AgegroupsSingleData.Title = "Einzel";
+                    AgegroupsSingleData.Items = DataModel.GetCurrentSingle();
+                    agegroupsSingle.BindingContext = AgegroupsSingleData;
+                }
+                return agegroupsSingle;
+            }
+        }
+        private AgegroupListPage AgegroupsTeam
+        {
+            get {
+                if (agegroupsTeam == null)
+                {
+                    agegroupsTeam = new AgegroupListPage();
+                    AgegroupsTeamData = new Agegroups();
+                    AgegroupsTeamData.Title = "Mannschaft";
+                    AgegroupsTeamData.Items = DataModel.GetCurrentTeam();
+                    agegroupsTeam.BindingContext = AgegroupsTeamData;
+                }
+                return agegroupsTeam;
+            }
+        }
 
         private NavigationPage NavigationPage { get { return (NavigationPage)OverviewPage.Detail; } }
+
+        private AgegroupPage AgegroupPage
+        {
+            get {
+                if (agegroupPage == null)
+                {
+                    agegroupPage = new AgegroupPage();
+                }
+                return agegroupPage;
+            }
+        }
 
         internal void Start()
         {
             OverviewPage.Select(0);
         }
 
+        private AgegroupPage agegroupPage;
         private SettingsPage settingsPage;
         private AboutPage aboutPage;
         private IntroductionPage introductionPage;
 
+        private AgegroupListPage agegroupsSingle;
+        private AgegroupListPage agegroupsTeam;
+
         private Agegroups AgegroupsSingleData { get; set; }
+        private Agegroups AgegroupsTeamData { get; set; }
 
         internal void Show(Agegroup ag)
         {
-            Page page = new AgegroupPage();
-            page.BindingContext = ag;
+            AgegroupPage.BindingContext = ag;
 
-            OverviewPage.Show(page);
+            OverviewPage.Show(AgegroupPage);
         }
 
-        private Agegroups AgegroupsTeamData { get; set; }
 
         private SettingsPage SettingsPage
         {
@@ -99,20 +139,7 @@ namespace de.df.points
 
         public PointsController()
         {
-            AgegroupsSingle = new AgegroupListPage();
-            AgegroupsTeam = new AgegroupListPage();
             OverviewPage = new OverviewPage();
-
-            AgegroupsSingleData = new Agegroups();
-            AgegroupsSingleData.Title = "Einzel";
-            AgegroupsSingleData.Items = DataModel.GetCurrentSingle();
-            AgegroupsSingle.BindingContext = AgegroupsSingleData;
-
-            AgegroupsTeamData = new Agegroups();
-            AgegroupsTeamData.Title = "Mannschaft";
-            AgegroupsTeamData.Items = DataModel.GetCurrentTeam();
-            AgegroupsTeam.BindingContext = AgegroupsTeamData;
-
             bool introduce = GetInt("FirstStart") < 1;
 #if DEBUG
       introduce = true;
