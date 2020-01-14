@@ -1,11 +1,10 @@
-﻿using de.df.points.Layer;
+﻿using de.df.points.Framework.UI;
+using de.df.points.Layer;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 
 namespace de.df.points.ViewModel
 {
-  internal class OverviewPageMasterViewModel : INotifyPropertyChanged
+  internal class OverviewPageMasterViewModel : ViewModelBase
   {
     public ObservableCollection<ItemLayer> FunctionsMenuItems { get; set; }
     public ObservableCollection<ItemLayer> OptionsMenuItems { get; set; }
@@ -22,20 +21,5 @@ namespace de.df.points.ViewModel
                     new ItemLayer { Id = 103, Title = "Über" },
                 });
     }
-
-    #region INotifyPropertyChanged Implementation
-
-    public event PropertyChangedEventHandler PropertyChanged;
-
-    void OnPropertyChanged([CallerMemberName] string propertyName = "")
-    {
-      if (PropertyChanged == null) {
-        return;
-      }
-
-      PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
-
-    #endregion
   }
 }

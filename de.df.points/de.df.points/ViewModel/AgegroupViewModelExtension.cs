@@ -2,11 +2,132 @@
 
 namespace de.df.points.Data
 {
-    partial class Agegroup
+    partial class AgegroupViewModel
     {
+        public string Discipline1
+        {
+            get {
+                if (Data == null)
+                {
+                    return "";
+                }
+                return Data.Discipline1;
+            }
+        }
+        public int Record1
+        {
+            get {
+                if (Data == null)
+                {
+                    return 1;
+                }
+                return Data.Record1;
+            }
+        }
+
+        public string Discipline2
+        {
+            get {
+                if (Data == null)
+                {
+                    return "";
+                }
+                return Data.Discipline2;
+            }
+        }
+        public int Record2
+        {
+            get {
+                if (Data == null)
+                {
+                    return 1;
+                }
+                return Data.Record2;
+            }
+        }
+        public string Discipline3
+        {
+            get {
+                if (Data == null)
+                {
+                    return "";
+                }
+                return Data.Discipline3;
+            }
+        }
+        public int Record3
+        {
+            get {
+                if (Data == null)
+                {
+                    return 1;
+                }
+                return Data.Record3;
+            }
+        }
+        public string Discipline4
+        {
+            get {
+                if (Data == null)
+                {
+                    return "";
+                }
+                return Data.Discipline4;
+            }
+        }
+        public int Record4
+        {
+            get {
+                if (Data == null)
+                {
+                    return 1;
+                }
+                return Data.Record4;
+            }
+        }
+
+        public string Discipline5
+        {
+            get {
+                if (Data == null)
+                {
+                    return "";
+                }
+                return Data.Discipline5;
+            }
+        }
+        public int Record5
+        {
+            get {
+                if (Data == null)
+                {
+                    return 1;
+                }
+                return Data.Record5;
+            }
+        }
+        public string Discipline6
+        {
+            get {
+                if (Data == null)
+                {
+                    return "";
+                }
+                return Data.Discipline6;
+            }
+        }
+        public int Record6
+        {
+            get {
+                if (Data == null)
+                {
+                    return 1;
+                }
+                return Data.Record6;
+            }
+        }
 
         public bool IsEnabled1 { get { return AmountOfDisciplines >= 1; } }
-        public string Discipline1 { get; set; }
 
         public string Discipline1Full { get { return string.Format("{0} ({1})", Discipline1, Record1Text); } }
 
@@ -59,12 +180,10 @@ namespace de.df.points.Data
 
         private double Time1Seconds { get { return ToSeconds(Time1); } }
 
-        public int Record1 { get; set; }
         private double Record1Seconds { get { return 0.01 * Record1; } }
         public string Record1Text { get { return ToText(Record1); } }
         public double Result1 { get { return GetPoints(Time1Seconds, Record1Seconds); } }
         public bool IsEnabled2 { get { return AmountOfDisciplines >= 2; } }
-        public string Discipline2 { get; set; }
 
         public string Discipline2Full { get { return string.Format("{0} ({1})", Discipline2, Record2Text); } }
 
@@ -117,12 +236,10 @@ namespace de.df.points.Data
 
         private double Time2Seconds { get { return ToSeconds(Time2); } }
 
-        public int Record2 { get; set; }
         private double Record2Seconds { get { return 0.01 * Record2; } }
         public string Record2Text { get { return ToText(Record2); } }
         public double Result2 { get { return GetPoints(Time2Seconds, Record2Seconds); } }
         public bool IsEnabled3 { get { return AmountOfDisciplines >= 3; } }
-        public string Discipline3 { get; set; }
 
         public string Discipline3Full { get { return string.Format("{0} ({1})", Discipline3, Record3Text); } }
 
@@ -175,12 +292,10 @@ namespace de.df.points.Data
 
         private double Time3Seconds { get { return ToSeconds(Time3); } }
 
-        public int Record3 { get; set; }
         private double Record3Seconds { get { return 0.01 * Record3; } }
         public string Record3Text { get { return ToText(Record3); } }
         public double Result3 { get { return GetPoints(Time3Seconds, Record3Seconds); } }
         public bool IsEnabled4 { get { return AmountOfDisciplines >= 4; } }
-        public string Discipline4 { get; set; }
 
         public string Discipline4Full { get { return string.Format("{0} ({1})", Discipline4, Record4Text); } }
 
@@ -233,12 +348,10 @@ namespace de.df.points.Data
 
         private double Time4Seconds { get { return ToSeconds(Time4); } }
 
-        public int Record4 { get; set; }
         private double Record4Seconds { get { return 0.01 * Record4; } }
         public string Record4Text { get { return ToText(Record4); } }
         public double Result4 { get { return GetPoints(Time4Seconds, Record4Seconds); } }
         public bool IsEnabled5 { get { return AmountOfDisciplines >= 5; } }
-        public string Discipline5 { get; set; }
 
         public string Discipline5Full { get { return string.Format("{0} ({1})", Discipline5, Record5Text); } }
 
@@ -291,12 +404,10 @@ namespace de.df.points.Data
 
         private double Time5Seconds { get { return ToSeconds(Time5); } }
 
-        public int Record5 { get; set; }
         private double Record5Seconds { get { return 0.01 * Record5; } }
         public string Record5Text { get { return ToText(Record5); } }
         public double Result5 { get { return GetPoints(Time5Seconds, Record5Seconds); } }
         public bool IsEnabled6 { get { return AmountOfDisciplines >= 6; } }
-        public string Discipline6 { get; set; }
 
         public string Discipline6Full { get { return string.Format("{0} ({1})", Discipline6, Record6Text); } }
 
@@ -349,7 +460,6 @@ namespace de.df.points.Data
 
         private double Time6Seconds { get { return ToSeconds(Time6); } }
 
-        public int Record6 { get; set; }
         private double Record6Seconds { get { return 0.01 * Record6; } }
         public string Record6Text { get { return ToText(Record6); } }
         public double Result6 { get { return GetPoints(Time6Seconds, Record6Seconds); } }

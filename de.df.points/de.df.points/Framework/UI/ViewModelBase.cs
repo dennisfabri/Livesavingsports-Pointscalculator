@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Runtime.CompilerServices;
 
-namespace de.df.points.Data
+namespace de.df.points.Framework.UI
 {
   public abstract class ViewModelBase : INotifyPropertyChanged
   {

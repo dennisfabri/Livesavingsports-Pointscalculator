@@ -1,14 +1,38 @@
 ﻿using de.df.points.Data;
 using de.df.points.View;
-using System;
-using System.Linq;
+using de.df.points.ViewModel;
 using Xamarin.Forms;
 
 namespace de.df.points
 {
     class PointsController
     {
+
+        private AgegroupPage agegroupPage;
+        private SettingsPage settingsPage;
+        private AboutPage aboutPage;
+        private IntroductionPage introductionPage;
+
+        private AgegroupListPage agegroupsSingle;
+        private AgegroupListPage agegroupsTeam;
+
+        private AgegroupViewModel agegroupViewModel;
+
+        private AgegroupViewModel AgegroupViewModel
+        {
+            get {
+                if (agegroupViewModel == null)
+                {
+                    agegroupViewModel = new AgegroupViewModel();
+                }
+                return agegroupViewModel;
+            }
+        }
+
         private OverviewPage OverviewPage { get; set; }
+
+        private AgegroupsViewModel AgegroupsSingleData { get; set; }
+        private AgegroupsViewModel AgegroupsTeamData { get; set; }
 
         private AgegroupListPage AgegroupsSingle
         {
@@ -16,7 +40,7 @@ namespace de.df.points
                 if (agegroupsSingle == null)
                 {
                     agegroupsSingle = new AgegroupListPage();
-                    AgegroupsSingleData = new Agegroups();
+                    AgegroupsSingleData = new AgegroupsViewModel();
                     AgegroupsSingleData.Title = "Einzel";
                     AgegroupsSingleData.Items = DataModel.GetCurrentSingle();
                     agegroupsSingle.BindingContext = AgegroupsSingleData;
@@ -30,7 +54,7 @@ namespace de.df.points
                 if (agegroupsTeam == null)
                 {
                     agegroupsTeam = new AgegroupListPage();
-                    AgegroupsTeamData = new Agegroups();
+                    AgegroupsTeamData = new AgegroupsViewModel();
                     AgegroupsTeamData.Title = "Mannschaft";
                     AgegroupsTeamData.Items = DataModel.GetCurrentTeam();
                     agegroupsTeam.BindingContext = AgegroupsTeamData;
@@ -47,6 +71,7 @@ namespace de.df.points
                 if (agegroupPage == null)
                 {
                     agegroupPage = new AgegroupPage();
+                    agegroupPage.BindingContext = AgegroupViewModel;
                 }
                 return agegroupPage;
             }
@@ -57,21 +82,9 @@ namespace de.df.points
             OverviewPage.Select(0);
         }
 
-        private AgegroupPage agegroupPage;
-        private SettingsPage settingsPage;
-        private AboutPage aboutPage;
-        private IntroductionPage introductionPage;
-
-        private AgegroupListPage agegroupsSingle;
-        private AgegroupListPage agegroupsTeam;
-
-        private Agegroups AgegroupsSingleData { get; set; }
-        private Agegroups AgegroupsTeamData { get; set; }
-
         internal void Show(Agegroup ag)
         {
-            AgegroupPage.BindingContext = ag;
-
+            AgegroupViewModel.Data = ag;
             OverviewPage.Show(AgegroupPage);
         }
 
@@ -83,7 +96,7 @@ namespace de.df.points
                 {
                     settingsPage = new SettingsPage()
                     {
-                        BindingContext = new MiniModel()
+                        BindingContext = new MiniViewModel()
                     };
                 }
                 return settingsPage;
@@ -114,7 +127,7 @@ namespace de.df.points
                 {
                     aboutPage = new AboutPage()
                     {
-                        BindingContext = new MiniModel()
+                        BindingContext = new MiniViewModel()
                     };
                 }
                 return aboutPage;
@@ -128,7 +141,7 @@ namespace de.df.points
                 {
                     introductionPage = new IntroductionPage()
                     {
-                        BindingContext = new MiniModel()
+                        BindingContext = new MiniViewModel()
                     };
                 }
                 return introductionPage;
@@ -142,7 +155,7 @@ namespace de.df.points
             OverviewPage = new OverviewPage();
             bool introduce = GetInt("FirstStart") < 1;
 #if DEBUG
-      introduce = true;
+            introduce = true;
 #endif
             if (introduce)
             {

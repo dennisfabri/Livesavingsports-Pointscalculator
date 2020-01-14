@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using de.df.points.Data;
+using de.df.points.Framework.UI;
 using Xamarin.Forms;
 
-namespace de.df.points.Data
+namespace de.df.points.ViewModel
 {
-    class Agegroups : ViewModelBase
+    class AgegroupsViewModel : ViewModelBase
     {
         public string Title { get; set; }
 
