@@ -1,13 +1,7 @@
-﻿using de.df.points.Framework.UI;
-
-namespace de.df.points.Data
+﻿namespace de.df.points.Data
 {
-    public partial class Agegroup : ViewModelBase
+    public partial class Agegroup
     {
-        public Agegroup()
-        {
-        }
-
         public string Name { get; set; }
         public string Description { get; set; }
         public int AmountOfDisciplines { get; set; }

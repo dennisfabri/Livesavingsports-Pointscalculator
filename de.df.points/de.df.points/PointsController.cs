@@ -1,20 +1,20 @@
 ﻿using de.df.points.Data;
 using de.df.points.View;
 using de.df.points.ViewModel;
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 
 namespace de.df.points
 {
     class PointsController
     {
-
         private AgegroupPage agegroupPage;
         private SettingsPage settingsPage;
-        private AboutPage aboutPage;
+        private AboutView aboutPage;
         private IntroductionPage introductionPage;
 
-        private AgegroupListPage agegroupsSingle;
-        private AgegroupListPage agegroupsTeam;
+        private AgegroupListView agegroupsSingle;
+        private AgegroupListView agegroupsTeam;
 
         private AgegroupViewModel agegroupViewModel;
 
@@ -31,33 +31,53 @@ namespace de.df.points
 
         private OverviewPage OverviewPage { get; set; }
 
-        private AgegroupsViewModel AgegroupsSingleData { get; set; }
-        private AgegroupsViewModel AgegroupsTeamData { get; set; }
+        private AgegroupsViewModel agegroupsSingleVM;
 
-        private AgegroupListPage AgegroupsSingle
+        private AgegroupsViewModel AgegroupsSingleVM
+        {
+            get {
+                if (agegroupsSingleVM == null)
+                {
+                    agegroupsSingleVM = new AgegroupsViewModel();
+                    agegroupsSingleVM.Title = "Einzel";
+                }
+                return agegroupsSingleVM;
+            }
+        }
+        private AgegroupsViewModel agegroupsTeamVM;
+
+        private AgegroupsViewModel AgegroupsTeamVM
+        {
+            get {
+                if (agegroupsTeamVM == null)
+                {
+                    agegroupsTeamVM = new AgegroupsViewModel();
+                    agegroupsTeamVM.Title = "Einzel";
+                }
+                return agegroupsTeamVM;
+            }
+        }
+
+        private AgegroupListView AgegroupsSingle
         {
             get {
                 if (agegroupsSingle == null)
                 {
-                    agegroupsSingle = new AgegroupListPage();
-                    AgegroupsSingleData = new AgegroupsViewModel();
-                    AgegroupsSingleData.Title = "Einzel";
-                    AgegroupsSingleData.Items = DataModel.GetCurrentSingle();
-                    agegroupsSingle.BindingContext = AgegroupsSingleData;
+                    agegroupsSingle = new AgegroupListView();
+                    AgegroupsSingleVM.Items.ReplaceRange(DataModel.GetCurrentSingle());
+                    agegroupsSingle.BindingContext = AgegroupsSingleVM;
                 }
                 return agegroupsSingle;
             }
         }
-        private AgegroupListPage AgegroupsTeam
+        private AgegroupListView AgegroupsTeam
         {
             get {
                 if (agegroupsTeam == null)
                 {
-                    agegroupsTeam = new AgegroupListPage();
-                    AgegroupsTeamData = new AgegroupsViewModel();
-                    AgegroupsTeamData.Title = "Mannschaft";
-                    AgegroupsTeamData.Items = DataModel.GetCurrentTeam();
-                    agegroupsTeam.BindingContext = AgegroupsTeamData;
+                    agegroupsTeam = new AgegroupListView();
+                    AgegroupsTeamVM.Items.ReplaceRange(DataModel.GetCurrentTeam());
+                    agegroupsTeam.BindingContext = AgegroupsTeamVM;
                 }
                 return agegroupsTeam;
             }
@@ -120,12 +140,12 @@ namespace de.df.points
             }
         }
 
-        private AboutPage AboutPage
+        private AboutView AboutPage
         {
             get {
                 if (aboutPage == null)
                 {
-                    aboutPage = new AboutPage()
+                    aboutPage = new AboutView()
                     {
                         BindingContext = new MiniViewModel()
                     };
@@ -196,8 +216,8 @@ namespace de.df.points
 
         internal void Set(int year)
         {
-            AgegroupsSingleData.Items = DataModel.GetSingle(year);
-            AgegroupsTeamData.Items = DataModel.GetTeam(year);
+            AgegroupsSingleVM.Items.ReplaceRange(DataModel.GetSingle(year));
+            AgegroupsTeamVM.Items.ReplaceRange(DataModel.GetTeam(year));
         }
 
         internal void Back()

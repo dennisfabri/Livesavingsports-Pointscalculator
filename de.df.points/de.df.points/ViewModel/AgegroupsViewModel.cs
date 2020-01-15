@@ -1,30 +1,45 @@
 ﻿using de.df.points.Data;
-using de.df.points.Framework.UI;
+using de.df.points.Framework.VM;
+using FreshMvvm;
+using PropertyChanged;
+using System;
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 
 namespace de.df.points.ViewModel
 {
-    class AgegroupsViewModel : ViewModelBase
+    [AddINotifyPropertyChangedInterface]
+    public class AgegroupsViewModel : FreshBasePageModel
     {
         public string Title { get; set; }
 
-        private Agegroup[] items;
+        private ObservableCollection<Agegroup> items;
+        private Agegroup item;
 
-        public Agegroup[] Items
+        public ObservableRangeCollection<Agegroup> Items { get; } = new ObservableRangeCollection<Agegroup>();
+
+        public Agegroup Item
         {
-            get {
-                return items;
-            }
+            get { return item; }
             set {
-                if (items != value)
+                if (item != value)
                 {
-                    items = value;
-                    OnThisPropertyChanged();
+                    item = value;
+
+                    if (item != null)
+                    {
+                        PointsController.Instance.Show(item);
+                    }
                 }
             }
         }
 
         // 03A9F4
         public Color Background { get; } = new Color(3.0 / 255.0, 169.0 / 255.0, 244.0 / 255.0);
+
+        protected override void ViewIsDisappearing(object sender, EventArgs e)
+        {
+            base.ViewIsDisappearing(sender, e);
+        }
     }
 }

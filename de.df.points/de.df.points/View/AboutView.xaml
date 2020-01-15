@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="Über"
-             x:Class="de.df.points.View.AboutPage" Padding="4">
+             x:Class="de.df.points.View.AboutView" Padding="4">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
@@ -12,7 +12,7 @@
                 <Label Text="Die App berechnet schnell und unkompliziert die Punkte für Schwimmer und Mannschaften aus ihren aktuellen Zeiten. In den Altersklassen mit Disziplinenwahl können im Einzel Zeiten für alle Diziplinen eingegeben werden. Der Punkterechner wählt für die Gesamtpunktzahl die Besten aus." FontSize="Small" TextColor="#FF606060" LineBreakMode="WordWrap"/>
                 <Label Text=" " FontSize="Large"/>
                 <Label Text="von Dennis Fabri" FontSize="Medium" VerticalOptions="Center"/>
-                <Label Text="https://www.dennisfabri.de" FontSize="Small" VerticalOptions="Center" x:Name="Hyperlink"/>
+                <Label Text="https://www.dennisfabri.de" FontSize="Small" VerticalOptions="Center"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

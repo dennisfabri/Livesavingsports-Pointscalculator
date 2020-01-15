@@ -1,0 +1,122 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+using FreshMvvm;
+using PropertyChanged;
+using Xamarin.Forms;
+
+namespace de.df.points.ViewModel
+{
+    [AddINotifyPropertyChangedInterface]
+    public partial class AgegroupViewModel : FreshBasePageModel
+    {
+        #region proxy
+
+        [DependsOn("Data")]
+        public string Name
+        {
+            get {
+                if (Data == null)
+                {
+                    return "";
+                }
+                return Data.Name;
+            }
+        }
+
+        [DependsOn("Data")]
+        public string Description
+        {
+            get {
+                if (Data == null)
+                {
+                    return "";
+                }
+                return Data.Description;
+            }
+        }
+
+        [DependsOn("Data")]
+        public int AmountOfDisciplines
+        {
+            get {
+                if (Data == null)
+                {
+                    return 0;
+                }
+                return Data.AmountOfDisciplines;
+            }
+        }
+
+        [DependsOn("Data")]
+        public int CalculatedDisciplines
+        {
+            get {
+                if (Data == null)
+                {
+                    return 0;
+                }
+                return Data.CalculatedDisciplines;
+            }
+        }
+
+<#
+  for (int x = 1; x <= 6; x++) {
+#>
+
+        [DependsOn("Data")]
+        public string Discipline<#= x #>
+        {
+            get {
+                if (Data == null)
+                {
+                    return "";
+                }
+                return Data.Discipline<#= x #>;
+            }
+        }
+
+        [DependsOn("Data")]
+        public int Record<#= x #>
+        {
+            get {
+                if (Data == null)
+                {
+                    return 1;
+                }
+                return Data.Record<#= x #>;
+            }
+        }
+
+        private double Record<#= x #>Seconds => 0.01 * Record<#= x #>;
+        public string Record<#= x #>Text => ToText(Record<#= x #>);
+        public bool IsEnabled<#= x #> => AmountOfDisciplines >= <#= x #>;
+        public string Discipline<#= x #>Full => $"{Discipline<#= x #>} ({Record<#= x #>Text})";
+        public ReturnType ReturnType<#= x #> => AmountOfDisciplines >= <#= x #> ? ReturnType.Next : ReturnType.Done;
+
+<#
+  }
+#>
+        #endregion proxy
+
+        #region properties
+<#
+  for (int x = 1; x <= 6; x++) {
+#>
+        private int Time<#= x #> => ToTime(Time<#= x #>Text);
+        public bool IsValid<#= x #> => IsValid(Time<#= x #>Text);
+        public string Time<#= x #>Text { get; set; }
+        public string Time<#= x #>Formatted => ToFormat(Time<#= x #>);
+        private double Time<#= x #>Seconds => ToSeconds(Time<#= x #>);
+        public double Result<#= x #> => GetPoints(Time<#= x #>Seconds, Record<#= x #>Seconds);
+
+<#
+}
+#>
+        #endregion properties
+    }
+
+}

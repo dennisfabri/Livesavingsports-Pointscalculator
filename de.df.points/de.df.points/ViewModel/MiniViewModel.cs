@@ -1,10 +1,12 @@
-﻿using de.df.points.Framework.UI;
+﻿using FreshMvvm;
+using PropertyChanged;
 using Xamarin.Forms;
 
-namespace de.df.points.Data
+namespace de.df.points.ViewModel
 {
-  class MiniViewModel : ViewModelBase
-  {
-    public Color Background { get { return Color.LightGray; } }
-  }
+    [AddINotifyPropertyChangedInterface]
+    class MiniViewModel : FreshBasePageModel
+    {
+        public Color Background { get { return Color.LightGray; } }
+    }
 }

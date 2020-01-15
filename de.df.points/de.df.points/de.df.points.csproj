@@ -8,17 +8,34 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Update="ViewModel\AgegroupViewModelExtension.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AgegroupViewModelExtension.cs</LastGenOutput>
+    </None>
+    <Compile Update="ViewModel\AgegroupViewModelExtension.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AgegroupViewModelExtension.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FreshMvvm" Version="3.0.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="PropertyChanged.Fody" Version="3.2.3" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
-    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991265" />  
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991477" />  
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="View\AgegroupListPage.xaml.cs">
-      <DependentUpon>AgegroupListPage.xaml</DependentUpon>
+    <Compile Update="View\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\AgegroupListView.xaml.cs">
+      <DependentUpon>AgegroupListView.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
@@ -26,7 +43,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="View\AgegroupListPage.xaml">
+    <EmbeddedResource Update="View\AgegroupListView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -65,5 +82,9 @@
     <None Update="View\SelectionPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 </Project>

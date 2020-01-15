@@ -1,12 +1,13 @@
-﻿using de.df.points.Framework.UI;
+﻿using de.df.points.Data;
+using PropertyChanged;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xamarin.Forms;
 
-namespace de.df.points.Data
+namespace de.df.points.ViewModel
 {
-    public partial class AgegroupViewModel : ViewModelBase
+    public partial class AgegroupViewModel
     {
         public Agegroup Data { get; set; }
 
@@ -16,58 +17,12 @@ namespace de.df.points.Data
 
         private static HashSet<char> invalidChars = new HashSet<char>(new char[] { '6', '7', '8', '9' });
 
-        public string Name
-        {
-            get {
-                if (Data == null)
-                {
-                    return "";
-                }
-                return Data.Name;
-            }
-        }
-        public string Description
-        {
-            get {
-                if (Data == null)
-                {
-                    return "";
-                }
-                return Data.Description;
-            }
-        }
-        public int AmountOfDisciplines
-        {
-            get {
-                if (Data == null)
-                {
-                    return 0;
-                }
-                return Data.AmountOfDisciplines;
-            }
-        }
-        public int CalculatedDisciplines
-        {
-            get {
-                if (Data == null)
-                {
-                    return 0;
-                }
-                return Data.CalculatedDisciplines;
-            }
-        }
-
-        public double Result { get; set; }
+        [DependsOn("Result1", "Result2", "Result3", "Result4", "Result5", "Result6", "AmountOfDisciplines")]
+        public double Result => CaclulateResultPoints();
 
         public Color Background { get { return string.IsNullOrWhiteSpace(Name) || Name.Contains("w") ? Color.LightPink : Color.LightBlue; } }
 
-        public string Title
-        {
-            get {
-                // return string.Format("{0} - Rettungssport Punkte", Name);
-                return string.Format("{0}", Name);
-            }
-        }
+        public string Title => Name;
 
         #region Functions
 
@@ -81,37 +36,9 @@ namespace de.df.points.Data
             return !invalidChars.Contains(c);
         }
 
-        private void OnTimeChange()
+        private double CaclulateResultPoints()
         {
-            double[] points = new double[6];
-
-            if (IsEnabled1)
-            {
-                points[0] = Result1;
-            }
-            if (IsEnabled2)
-            {
-                points[1] = Result2;
-            }
-            if (IsEnabled3)
-            {
-                points[2] = Result3;
-            }
-            if (IsEnabled4)
-            {
-                points[3] = Result4;
-            }
-            if (IsEnabled5)
-            {
-                points[4] = Result5;
-            }
-            if (IsEnabled6)
-            {
-                points[5] = Result6;
-            }
-
-            Result = points.OrderByDescending(i => i).Take(CalculatedDisciplines).DefaultIfEmpty(0).Sum();
-            OnPropertyChanged(nameof(Result));
+            return new[] { Result1, Result2, Result3, Result4, Result5, Result6 }.Take(AmountOfDisciplines).OrderByDescending(i => i).Take(CalculatedDisciplines).DefaultIfEmpty(0).Sum();
         }
 
         private const double Epsilon = 0.005;
@@ -121,7 +48,7 @@ namespace de.df.points.Data
             int m = (seconds100 / 6000);
             int s = (seconds100 / 100) % 60;
             int h = seconds100 % 100;
-            return string.Format("{0}:{1:D2},{2:D2}", m, s, h);
+            return $"{m}:{s:D2},{h:D2}";
         }
 
         private static string ToFormat(int writing)
@@ -129,7 +56,7 @@ namespace de.df.points.Data
             int m = (writing / 10000);
             int s = (writing / 100) % 100;
             int h = writing % 100;
-            return string.Format("{0}:{1:D2},{2:D2}", m, s, h);
+            return $"{m}:{s:D2},{h:D2}";
         }
 
         private static double ToSeconds(int? writing)
@@ -188,9 +115,11 @@ namespace de.df.points.Data
 
             string v = new String(value.ToCharArray().Where(c => Char.IsDigit(c)).ToArray());
 
-            int time = 0;
-            Int32.TryParse(v, out time);
-            return time;
+            if (Int32.TryParse(v, out int time))
+            {
+                return time;
+            }
+            return 0;
         }
 
         #endregion
