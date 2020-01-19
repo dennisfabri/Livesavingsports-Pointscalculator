@@ -7,7 +7,7 @@
              Title="{Binding Title}"
              Padding="0"
              mc:Ignorable="d"
-             x:Class="de.df.points.View.AgegroupListView"
+             x:Class="de.df.points.View.AgegroupsView"
              >
     <ContentPage.Resources>
         <ResourceDictionary>

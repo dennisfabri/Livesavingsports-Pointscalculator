@@ -13,8 +13,8 @@ namespace de.df.points
         private AboutView aboutPage;
         private IntroductionPage introductionPage;
 
-        private AgegroupListView agegroupsSingle;
-        private AgegroupListView agegroupsTeam;
+        private AgegroupsView agegroupsSingle;
+        private AgegroupsView agegroupsTeam;
 
         private AgegroupViewModel agegroupViewModel;
 
@@ -58,24 +58,24 @@ namespace de.df.points
             }
         }
 
-        private AgegroupListView AgegroupsSingle
+        private AgegroupsView AgegroupsSingle
         {
             get {
                 if (agegroupsSingle == null)
                 {
-                    agegroupsSingle = new AgegroupListView();
+                    agegroupsSingle = new AgegroupsView();
                     AgegroupsSingleVM.Items.ReplaceRange(DataModel.GetCurrentSingle());
                     agegroupsSingle.BindingContext = AgegroupsSingleVM;
                 }
                 return agegroupsSingle;
             }
         }
-        private AgegroupListView AgegroupsTeam
+        private AgegroupsView AgegroupsTeam
         {
             get {
                 if (agegroupsTeam == null)
                 {
-                    agegroupsTeam = new AgegroupListView();
+                    agegroupsTeam = new AgegroupsView();
                     AgegroupsTeamVM.Items.ReplaceRange(DataModel.GetCurrentTeam());
                     agegroupsTeam.BindingContext = AgegroupsTeamVM;
                 }

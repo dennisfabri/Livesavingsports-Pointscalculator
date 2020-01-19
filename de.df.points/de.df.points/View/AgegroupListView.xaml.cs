@@ -9,25 +9,24 @@ using de.df.points.ViewModel;
 namespace de.df.points.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AgegroupListView : ContentPage
+    public partial class AgegroupsView : ContentPage
     {
-        public AgegroupListView()
+        public AgegroupsView()
         {
             InitializeComponent();
         }
 
         async void ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            //Agegroup ag = ((ListView)sender).SelectedItem as Agegroup;
+            Agegroup ag = ((ListView)sender).SelectedItem as Agegroup;
 
-            //if (ag == null)
-            //{
-            //    return;
-            //}
-            ////Deselect Item
-            //((ListView)sender).SelectedItem = null;
+            if (ag == null)
+            {
+                return;
+            }
 
-            //PointsController.Instance.Show(ag);
+            ((AgegroupsViewModel)BindingContext).Item = null;
+            ((AgegroupsViewModel)BindingContext).Item = ag;
         }
     }
 }
