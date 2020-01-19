@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="de.df.points.View.OverviewPage"
+             x:Class="de.df.points.View.OverviewView"
              xmlns:pages="clr-namespace:de.df.points.View">
   <MasterDetailPage.Master>
     <pages:OverviewPageMaster x:Name="MasterPage" />
@@ -9,7 +9,7 @@
   <MasterDetailPage.Detail>
     <NavigationPage>
       <x:Arguments>
-        <pages:OverviewPageDetail />
+        <pages:OverviewDetailView />
       </x:Arguments>
     </NavigationPage>
   </MasterDetailPage.Detail>

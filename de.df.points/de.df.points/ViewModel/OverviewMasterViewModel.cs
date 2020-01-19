@@ -6,12 +6,12 @@ using System.Collections.ObjectModel;
 namespace de.df.points.ViewModel
 {
     [AddINotifyPropertyChangedInterface]
-    internal class OverviewPageMasterViewModel : FreshBasePageModel
+    internal class OverviewMasterViewModel : FreshBasePageModel
     {
         public ObservableCollection<ItemLayer> FunctionsMenuItems { get; set; }
         public ObservableCollection<ItemLayer> OptionsMenuItems { get; set; }
 
-        public OverviewPageMasterViewModel()
+        public OverviewMasterViewModel()
         {
             FunctionsMenuItems = new ObservableCollection<ItemLayer>(new[] {
                     new ItemLayer { Id = 0, Title = "Einzel"},

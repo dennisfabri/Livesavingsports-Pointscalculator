@@ -6,7 +6,7 @@ using de.df.points.View.Extensions;
 namespace de.df.points.View
 {
   [XamlCompilation(XamlCompilationOptions.Compile)]
-  public partial class AgegroupPage : ContentPage
+  public partial class AgegroupView : ContentPage
   {
     private static EntryLengthValidatorBehavior EntryLengthValidator = new EntryLengthValidatorBehavior() { MaxLength = 6 };
 
@@ -14,7 +14,7 @@ namespace de.df.points.View
     private Label[] timeLabels;
     private Label[] pointsLabels;
 
-    public AgegroupPage()
+    public AgegroupView()
     {
       InitializeComponent();
 

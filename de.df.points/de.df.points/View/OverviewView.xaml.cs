@@ -6,11 +6,11 @@ using Xamarin.Forms.Xaml;
 namespace de.df.points.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class OverviewPage : MasterDetailPage
+    public partial class OverviewView : MasterDetailPage
     {
         private NavigationPage npage = new NavigationPage();
 
-        public OverviewPage()
+        public OverviewView()
         {
             InitializeComponent();
             try
@@ -28,10 +28,10 @@ namespace de.df.points.View
         {
             try
             {
-                Navigator np = Detail as Navigator;
+                NavigatorView np = Detail as NavigatorView;
                 if (np == null)
                 {
-                    np = new Navigator(page);
+                    np = new NavigatorView(page);
                     Detail = np;
                 }
                 else
@@ -58,10 +58,10 @@ namespace de.df.points.View
             {
                 Page page = PointsController.Instance.GetPage(id);
 
-                Navigator np = Detail as Navigator;
+                NavigatorView np = Detail as NavigatorView;
                 if (np == null)
                 {
-                    np = new Navigator(page);
+                    np = new NavigatorView(page);
                     Detail = np;
                 }
                 else

@@ -8,15 +8,15 @@ using Xamarin.Forms.Xaml;
 namespace de.df.points.View
 {
   [XamlCompilation(XamlCompilationOptions.Compile)]
-  public partial class OverviewPageMaster : ContentPage
+  public partial class OverviewMasterView : ContentPage
   {
     private ToggleButton[] Buttons = new ToggleButton[0];
 
-    public OverviewPageMaster()
+    public OverviewMasterView()
     {
       InitializeComponent();
 
-      BindingContext = new OverviewPageMasterViewModel();
+      BindingContext = new OverviewMasterViewModel();
 
       Buttons = new ToggleButton[] {
         Single,Team,

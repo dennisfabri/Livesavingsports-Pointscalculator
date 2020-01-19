@@ -8,10 +8,10 @@ namespace de.df.points
 {
     class PointsController
     {
-        private AgegroupPage agegroupPage;
-        private SettingsPage settingsPage;
+        private AgegroupView agegroupPage;
+        private SettingsView settingsPage;
         private AboutView aboutPage;
-        private IntroductionPage introductionPage;
+        private IntroductionView introductionPage;
 
         private AgegroupsView agegroupsSingle;
         private AgegroupsView agegroupsTeam;
@@ -29,7 +29,7 @@ namespace de.df.points
             }
         }
 
-        private OverviewPage OverviewPage { get; set; }
+        private OverviewView OverviewPage { get; set; }
 
         private AgegroupsViewModel agegroupsSingleVM;
 
@@ -85,12 +85,12 @@ namespace de.df.points
 
         private NavigationPage NavigationPage { get { return (NavigationPage)OverviewPage.Detail; } }
 
-        private AgegroupPage AgegroupPage
+        private AgegroupView AgegroupPage
         {
             get {
                 if (agegroupPage == null)
                 {
-                    agegroupPage = new AgegroupPage();
+                    agegroupPage = new AgegroupView();
                     agegroupPage.BindingContext = AgegroupViewModel;
                 }
                 return agegroupPage;
@@ -109,14 +109,14 @@ namespace de.df.points
         }
 
 
-        private SettingsPage SettingsPage
+        private SettingsView SettingsPage
         {
             get {
                 if (settingsPage == null)
                 {
-                    settingsPage = new SettingsPage()
+                    settingsPage = new SettingsView()
                     {
-                        BindingContext = new MiniViewModel()
+                        BindingContext = new SettingsViewModel()
                     };
                 }
                 return settingsPage;
@@ -147,21 +147,21 @@ namespace de.df.points
                 {
                     aboutPage = new AboutView()
                     {
-                        BindingContext = new MiniViewModel()
+                        BindingContext = new AboutViewModel()
                     };
                 }
                 return aboutPage;
             }
         }
 
-        private IntroductionPage IntroductionPage
+        private IntroductionView IntroductionPage
         {
             get {
                 if (introductionPage == null)
                 {
-                    introductionPage = new IntroductionPage()
+                    introductionPage = new IntroductionView()
                     {
-                        BindingContext = new MiniViewModel()
+                        BindingContext = new IntroductionViewModel()
                     };
                 }
                 return introductionPage;
@@ -172,7 +172,7 @@ namespace de.df.points
 
         public PointsController()
         {
-            OverviewPage = new OverviewPage();
+            OverviewPage = new OverviewView();
             bool introduce = GetInt("FirstStart") < 1;
 #if DEBUG
             introduce = true;

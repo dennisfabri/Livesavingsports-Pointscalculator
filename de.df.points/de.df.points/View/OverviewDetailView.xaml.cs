@@ -4,9 +4,9 @@ using Xamarin.Forms.Xaml;
 namespace de.df.points.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class OverviewPageDetail : ContentPage
+    public partial class OverviewDetailView : ContentPage
     {
-        public OverviewPageDetail()
+        public OverviewDetailView()
         {
             InitializeComponent();
         }

@@ -34,8 +34,29 @@
     <Compile Update="View\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
     </Compile>
-    <Compile Update="View\AgegroupListView.xaml.cs">
-      <DependentUpon>AgegroupListView.xaml</DependentUpon>
+    <Compile Update="View\AgegroupView.xaml.cs">
+      <DependentUpon>AgegroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\AgegroupsView.xaml.cs">
+      <DependentUpon>AgegroupsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\IntroductionView.xaml.cs">
+      <DependentUpon>IntroductionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\NavigatorView.xaml.cs">
+      <DependentUpon>NavigatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\OverviewDetailView.xaml.cs">
+      <DependentUpon>OverviewDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\OverviewMasterView.xaml.cs">
+      <DependentUpon>OverviewMasterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\OverviewView.xaml.cs">
+      <DependentUpon>OverviewView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="View\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Update="View\StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
@@ -43,7 +64,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="View\AgegroupListView.xaml">
+    <EmbeddedResource Update="View\AgegroupsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

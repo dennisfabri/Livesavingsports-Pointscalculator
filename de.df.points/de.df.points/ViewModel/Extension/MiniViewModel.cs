@@ -2,10 +2,10 @@
 using PropertyChanged;
 using Xamarin.Forms;
 
-namespace de.df.points.ViewModel
+namespace de.df.points.ViewModel.Extension
 {
     [AddINotifyPropertyChangedInterface]
-    class MiniViewModel : FreshBasePageModel
+    abstract class MiniViewModel : FreshBasePageModel
     {
         public Color Background { get { return Color.LightGray; } }
     }

@@ -4,16 +4,16 @@ using Xamarin.Forms.Xaml;
 namespace de.df.points.View
 {
   [XamlCompilation(XamlCompilationOptions.Compile)]
-  public partial class Navigator
+  public partial class IntroductionView
   {
-    public Navigator(Page page) : base(page)
+    public IntroductionView()
     {
       InitializeComponent();
     }
 
-    public Navigator()
+    private void OnClicked(object sender, System.EventArgs e)
     {
-      InitializeComponent();
+      PointsController.Instance.Back();
     }
   }
 }

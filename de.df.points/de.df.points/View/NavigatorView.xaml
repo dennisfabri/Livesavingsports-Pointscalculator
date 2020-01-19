@@ -4,6 +4,6 @@
              x:Name="NP"
              BackgroundColor="White" 
              Tint="White"
-             BarBackgroundColor="{Binding Path=CurrentPage.BindingContext.Background, Source={x:Reference NP}}}"
+             BarBackgroundColor="{Binding Path=CurrentPage.BindingContext.Background, Source={x:Reference NP}}"
              BarTextColor="White"
-             x:Class="de.df.points.View.Navigator"/>
+             x:Class="de.df.points.View.NavigatorView"/>

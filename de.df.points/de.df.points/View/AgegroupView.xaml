@@ -2,7 +2,7 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="de.df.points.View.AgegroupPage"    
+    x:Class="de.df.points.View.AgegroupView"    
     Title="{Binding Path=Title}"
     Padding="0"
     BackgroundColor="White"
