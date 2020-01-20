@@ -4,7 +4,7 @@
              x:Class="de.df.points.View.OverviewView"
              xmlns:pages="clr-namespace:de.df.points.View">
   <MasterDetailPage.Master>
-    <pages:OverviewPageMaster x:Name="MasterPage" />
+    <pages:OverviewMasterView x:Name="MasterPage" />
   </MasterDetailPage.Master>
   <MasterDetailPage.Detail>
     <NavigationPage>
