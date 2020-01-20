@@ -1,7 +1,6 @@
 ﻿using de.df.points.Data;
 using de.df.points.View;
 using de.df.points.ViewModel;
-using System.Collections.ObjectModel;
 using Xamarin.Forms;
 
 namespace de.df.points
@@ -52,7 +51,7 @@ namespace de.df.points
                 if (agegroupsTeamVM == null)
                 {
                     agegroupsTeamVM = new AgegroupsViewModel();
-                    agegroupsTeamVM.Title = "Einzel";
+                    agegroupsTeamVM.Title = "Mannschaft";
                 }
                 return agegroupsTeamVM;
             }
