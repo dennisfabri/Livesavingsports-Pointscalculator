@@ -1,11 +1,10 @@
-﻿using FreshMvvm;
-using PropertyChanged;
+﻿using PropertyChanged;
 using Xamarin.Forms;
 
 namespace de.df.points.ViewModel
 {
     [AddINotifyPropertyChangedInterface]
-    public partial class AgegroupViewModel : FreshBasePageModel
+    public partial class AgegroupViewModel
     {
         #region proxy
 

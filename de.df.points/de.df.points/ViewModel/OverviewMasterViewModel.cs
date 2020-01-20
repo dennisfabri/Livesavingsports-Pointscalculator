@@ -1,12 +1,11 @@
 ﻿using de.df.points.Layer;
-using FreshMvvm;
 using PropertyChanged;
 using System.Collections.ObjectModel;
 
 namespace de.df.points.ViewModel
 {
     [AddINotifyPropertyChangedInterface]
-    internal class OverviewMasterViewModel : FreshBasePageModel
+    internal class OverviewMasterViewModel
     {
         public ObservableCollection<ItemLayer> FunctionsMenuItems { get; set; }
         public ObservableCollection<ItemLayer> OptionsMenuItems { get; set; }
