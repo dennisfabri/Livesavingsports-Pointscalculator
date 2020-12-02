@@ -7,8 +7,8 @@ namespace de.df.points.Data
     {
         private static readonly int FirstYear = 2017;
 
-        private static readonly Agegroup[][] Single = new Agegroup[][] { DataModel2017.Single, DataModel2018.Single, DataModel2019.Single, DataModel2020.Single };
-        private static readonly Agegroup[][] Team = new Agegroup[][] { DataModel2017.Team, DataModel2018.Team, DataModel2019.Team, DataModel2020.Team };
+        private static readonly Agegroup[][] Single = new Agegroup[][] { DataModel2017.Single, DataModel2018.Single, DataModel2019.Single, DataModel2020.Single, DataModel2021.Single };
+        private static readonly Agegroup[][] Team = new Agegroup[][] { DataModel2017.Team, DataModel2018.Team, DataModel2019.Team, DataModel2020.Team, DataModel2021.Team };
 
         private static readonly int[] Years = Single.Select((agegroup, index) => FirstYear + index).ToArray();
 
