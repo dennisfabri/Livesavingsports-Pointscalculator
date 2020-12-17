@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace de.df.points.Data
 {
-    class DataModel
+    internal class DataModel
     {
         private static readonly int FirstYear = 2017;
 

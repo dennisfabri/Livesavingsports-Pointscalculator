@@ -1,8 +1,8 @@
 ﻿namespace de.df.points.Data
 {
-  class DataModel2021
-  {
-      public static readonly Agegroup[] Single = new Agegroup[] {
+    internal class DataModel2021
+    {
+        public static readonly Agegroup[] Single = new Agegroup[] {
         new Agegroup() { Name = "AK 12 weiblich", Description = "", AmountOfDisciplines = 3, CalculatedDisciplines = 3,
           Discipline1 = "50m Hindernisschwimmen", Record1 = 3103,
           Discipline2 = "50m Kombiniertes Schwimmen", Record2 = 3269,
@@ -61,7 +61,7 @@
           Discipline3 = "50m Retten", Record3 = 3428,
           Discipline4 = "100m Kombinierte Rettungsübung", Record4 = 7143,
           Discipline5 = "100m Retten mit Flossen", Record5 = 5215,
-          Discipline6 = "200m Super-Lifesaver", Record6 = 14332,
+          Discipline6 = "200m Super-Lifesaver", Record6 = 14584,
         },
         new Agegroup() { Name = "AK Offen männlich", Description = "", AmountOfDisciplines = 6, CalculatedDisciplines = 3,
           Discipline1 = "200m Hindernisschwimmen", Record1 = 11700,
@@ -221,9 +221,9 @@
           Discipline2 = "50m Kombiniertes Schwimmen", Record2 = 10134,
           Discipline3 = "25m Schleppen einer Puppe", Record3 = 4933,
         },
-      };
+        };
 
-      public static readonly Agegroup[] Team = new Agegroup[] {
+        public static readonly Agegroup[] Team = new Agegroup[] {
         new Agegroup() { Name = "AK 12 weiblich", Description = "", AmountOfDisciplines = 4, CalculatedDisciplines = 4,
           Discipline1 = "4*50m Hindernisstaffel", Record1 = 14564,
           Discipline2 = "4*25m Rückenlage ohne Armtätigkeit", Record2 = 8219,
@@ -365,5 +365,5 @@
           Discipline3 = "4*25m Rettungsstaffel", Record3 = 7478,
         },
       };
-  }
+    }
 }

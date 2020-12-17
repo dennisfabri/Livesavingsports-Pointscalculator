@@ -1,8 +1,8 @@
 ﻿namespace de.df.points.Data
 {
-  class DataModel2018
-  {
-    public static readonly Agegroup[] Single = new Agegroup[] {
+    internal class DataModel2018
+    {
+        public static readonly Agegroup[] Single = new Agegroup[] {
         new Agegroup() { Name = "AK 12 weiblich", Description = "", AmountOfDisciplines = 3, CalculatedDisciplines = 3,
           Discipline1 = "50m Hindernisschwimmen", Record1 = 3103,
           Discipline2 = "50m Kombiniertes Schwimmen", Record2 = 3269,
@@ -207,7 +207,7 @@
         },
       };
 
-    public static readonly Agegroup[] Team = new Agegroup[] {
+        public static readonly Agegroup[] Team = new Agegroup[] {
         new Agegroup() { Name = "AK 12 weiblich", Description = "", AmountOfDisciplines = 4, CalculatedDisciplines = 4,
           Discipline1 = "4*25m Hindernisstaffel", Record1 = 6620,
           Discipline2 = "4*25m Rückenlage ohne Armtätigkeit", Record2 = 8460,
@@ -349,5 +349,5 @@
           Discipline3 = "4*25m Rettungsstaffel", Record3 = 7478,
         },
       };
-  }
+    }
 }

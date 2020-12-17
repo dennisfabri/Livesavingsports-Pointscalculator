@@ -6,7 +6,6 @@
         public string Description { get; set; }
         public int AmountOfDisciplines { get; set; }
         public int CalculatedDisciplines { get; set; }
-
         public string Discipline1 { get; set; }
         public int Record1 { get; set; }
         public string Discipline2 { get; set; }
