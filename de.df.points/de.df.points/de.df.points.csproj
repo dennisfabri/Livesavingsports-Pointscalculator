@@ -1,12 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.21.0</Version>
-    <AssemblyVersion>1.21.0.0</AssemblyVersion>
-    <FileVersion>1.21.0.0</FileVersion>
+    <Version>1.22.0</Version>
+    <AssemblyVersion>1.22.0.0</AssemblyVersion>
+    <FileVersion>1.22.0.0</FileVersion>
   </PropertyGroup>
-
   <ItemGroup>
     <None Update="ViewModel\AgegroupViewModelExtension.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -18,7 +16,6 @@
       <DependentUpon>AgegroupViewModelExtension.tt</DependentUpon>
     </Compile>
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.1">
       <PrivateAssets>all</PrivateAssets>
@@ -26,9 +23,8 @@
     </PackageReference>
     <PackageReference Include="PropertyChanged.Fody" Version="3.3.1" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
-    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1687" />  
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1687" />
   </ItemGroup>
-
   <ItemGroup>
     <Compile Update="View\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
@@ -61,13 +57,11 @@
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
-
   <ItemGroup>
     <EmbeddedResource Update="View\AgegroupsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
-
   <ItemGroup>
     <None Update="App.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -103,7 +97,6 @@
       <Generator>MSBuild:Compile</Generator>
     </None>
   </ItemGroup>
-
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
